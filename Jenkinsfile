@@ -22,7 +22,7 @@ pipeline {
         stage('Deliver') {
             steps {
                 withCredentials([usernameColonPassword(credentialsId: 'gitpush', variable: 'gpr')]) {
-    sh 'git merge develop'
+    sh 'git merge master'
     sh 'git commit -am "Merged develop branch to master'
     sh "git push origin master"
 }
