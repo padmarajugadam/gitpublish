@@ -21,7 +21,11 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'echo deliver'
+                withCredentials([usernameColonPassword(credentialsId: 'gitpush', variable: 'gpr')]) {
+    sh 'git merge develop'
+    sh 'git commit -am "Merged develop branch to master'
+    sh "git push origin master"
+}
             }
         }
     }
