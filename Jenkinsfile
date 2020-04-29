@@ -15,7 +15,7 @@ pipeline {
             }
             post {
                 always {
-                    sh 'echo post'
+                    sh 'echo post1'
                 }
             }
         }
