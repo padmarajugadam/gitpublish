@@ -26,6 +26,7 @@ pipeline {
                      sh 'git checkout origin/master'
                      sh 'git merge origin/feature'
                     sh 'ls -lrt'
+                    sh 'git branch'
                     
                     sh 'git commit -am "default commit"'
                     sh 'git push https://padmarajugadam:Vijuchinna35@github.com/padmarajugadam/gitpublish.git'
