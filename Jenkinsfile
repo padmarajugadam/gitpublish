@@ -12,7 +12,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
            sh 'git merge origin/feature'
          
            sh 'ls'
-           sh 'echo ${repositoryUrl} '
+           sh 'echo ${url} '
            //sh 'git commit -am "jenkins commit"'
            //sh 'git push'
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
