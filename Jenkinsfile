@@ -18,7 +18,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
                    
                 //    sh 'git push https://${padmarajugadam}:${Vijuchinna35}@github.com/padmarajugadam/gitpublish.git'
 sh 'ls'
-         }
+        // }
          }
         }
  }
