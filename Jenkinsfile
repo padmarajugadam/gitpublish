@@ -24,7 +24,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
    
-                    sh 'git checkout master'
+                   // sh 'git checkout master'
                     sh 'ls -lrt'
                     sh 'git merge feature'
                     sh 'git commit -am "default commit"'
