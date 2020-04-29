@@ -20,5 +20,8 @@ pipeline {
             sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
            }
         }
+	 failure {
+            echo 'I failed :('
+        }
     }
 }
