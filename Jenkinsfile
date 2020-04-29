@@ -19,7 +19,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
         command = "grep -oP '(?<=url>)[^<]+' /var/lib/jenkins/jobs/${JOB_NAME}/config.xml"
         GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
         echo "Detected Git Repo URL: ${GIT_REPO_URL}"  
-    }
+    
            catch(err){
         throw err
         error "Colud not find any Git repository for the job ${JOB_NAME}"
@@ -30,7 +30,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
             sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
            }
           }
-         
+         }
         }
  }
 }
