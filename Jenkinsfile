@@ -24,7 +24,7 @@ pipeline {
                 withCredentials([usernameColonPassword(credentialsId: 'gitpush', variable: 'gpr')]) {
                     sh 'git fetch --all'
           sh 'git checkout master'             
-    sh 'git commit -am "Merged develop branch to master'
+    // sh 'git commit -am "Merged develop branch to master'
     sh 'git push origin master'
 }
             }
