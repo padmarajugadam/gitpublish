@@ -19,6 +19,10 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
         GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
         echo "Detected Git Repo URL: ${GIT_REPO_URL}"  
     }
+           catch(err){
+        throw err
+        error "Colud not find any Git repository for the job ${JOB_NAME}"
+  }
            //sh 'git commit -am "jenkins commit"'
            //sh 'git push'
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
