@@ -9,7 +9,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
            sh 'git branch'
            sh 'git checkout master'
            sh 'git pull '
-           sh 'git merge feature'
+           sh 'git merge origin/feature'
          
            sh 'ls'
            sh 'git commit -am "jenkins commit"'
