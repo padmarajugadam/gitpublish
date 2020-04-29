@@ -25,6 +25,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
    
                     sh 'git checkout master'
+                    sh '$PWD && ls'
                     sh 'git merge feature'
                     sh 'git commit -am "default commit"'
                     sh 'git push https://padmarajugadam:Vijuchinna35@github.com/padmarajugadam/gitpublish.git'
