@@ -2,7 +2,7 @@ pipeline {
  agent any
  stages {
         stage('Merge') { 
-          steps 
+          steps //removed brace
 //checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PreBuildMerge', options: [mergeRemote: 'origin', mergeTarget: 'master']]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitpush', url: 'https://github.com/padmarajugadam/gitpublish.git']]])
            sh ''' git branch
            git checkout master
