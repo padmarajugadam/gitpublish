@@ -22,7 +22,9 @@ pipeline {
         stage('Deliver') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
-    sh 'git push origin master'
+   
+                    sh 'git checkout master'
+                    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/padmarajugadam/gitpublish.git'
      }
           
                 
