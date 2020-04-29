@@ -13,11 +13,11 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
             sh 'git push https://${padmarajugadam}:${Vijuchinna35}@github.com/padmarajugadam/gitpublish.git'
           }
           {
-         withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
+         //withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
 
                    
                 //    sh 'git push https://${padmarajugadam}:${Vijuchinna35}@github.com/padmarajugadam/gitpublish.git'
-
+sh 'ls'
          }
          }
         }
