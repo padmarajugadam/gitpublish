@@ -26,14 +26,15 @@ pipeline {
                 git credentialsId: 'gitpush', url: 'https://github.com/padmarajugadam/gitpublish.git'
                 git branch: 'feature', credentialsId: 'gitpush', url: 'https://github.com/padmarajugadam/gitpublish.git'
                 
-               // withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
-               //      sh 'git checkout origin/master'
-               //      sh 'git merge origin/feature'
+                
+               withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
+                   sh 'git checkout origin/master'
+                  sh 'git merge origin/feature'
                   //  sh 'ls -lrt'
                  //   sh 'git branch'
                     
-                 //   sh 'git commit -am "default commit"'
-                  //  sh 'git push https://padmarajugadam:Vijuchinna35@github.com/padmarajugadam/gitpublish.git'
+                  sh 'git commit -am "default commit"'
+                  sh 'git push https://padmarajugadam:Vijuchinna35@github.com/padmarajugadam/gitpublish.git'
      //}
           
                 
