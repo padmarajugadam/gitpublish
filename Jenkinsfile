@@ -3,6 +3,7 @@ pipeline {
  agent any
  stages {
         stage('Build') { 
+          try{
           steps {
            sh 'ls'
            sh 'git branch'
@@ -13,7 +14,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
            sh 'git merge origin/feature'
          
            sh 'ls'
-           try{
+          
         GIT_REPO_URL = null
         command = "grep -oP '(?<=url>)[^<]+' /var/lib/jenkins/jobs/${JOB_NAME}/config.xml"
         GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
