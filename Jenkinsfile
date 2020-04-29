@@ -10,7 +10,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
            sh 'git checkout master'
            sh 'git pull '
            sh 'git merge origin/feature'
-         
+         sh ' echo " Job '${JOB_NAME}' (${BUILD_NUMBER}) is waiting for input"'
            sh 'ls'
            sh label: '', script: 'echo $url'
            //sh 'git commit -am "jenkins commit"'
