@@ -25,7 +25,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
    
                     sh 'git checkout master'
-                    sh 'git push https://${git-user}:${git-pass}@github.com/padmarajugadam/gitpublish.git'
+                    sh 'git push https://padmarajugadam:Vijuchinna35@github.com/padmarajugadam/gitpublish.git'
      }
           
                 
