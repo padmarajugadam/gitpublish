@@ -1,11 +1,15 @@
 pipeline {
  agent any
+	tools {
+        maven 'maven3.6.1' 
+    }
  stages {
-      stage('build')   {
-			     steps {
-				      echo 'I am executing stage 1'
-			           }
-		                   } 
+	 
+	 stage('Build') { 
+            steps {
+                sh 'mvn -B -DskipTests clean package' 
+            }
+        }
         }						   
 
     post {
