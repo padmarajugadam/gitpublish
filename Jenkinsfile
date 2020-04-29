@@ -11,7 +11,7 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
          
            sh 'ls'
           }
-         steps('push') {
+          {
          withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
 
                     sh 'git checkout master'
