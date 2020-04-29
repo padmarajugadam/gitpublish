@@ -1,20 +1,14 @@
 pipeline {
  agent any
  stages {
-        stage('Build') { 
+        stage('Merge') { 
           steps {
-           sh 'ls'
-           sh 'git branch'
 checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PreBuildMerge', options: [mergeRemote: 'origin', mergeTarget: 'master']]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitpush', url: 'https://github.com/padmarajugadam/gitpublish.git']]])
-           sh 'git branch'
-           sh 'git checkout master'
-           sh 'git pull '
-           sh 'git merge origin/feature'
-         sh ' echo " Job '${JOB_NAME}' (${BUILD_NUMBER}) is waiting for input"'
-           sh 'ls'
-           sh label: '', script: 'echo $url'
-           //sh 'git commit -am "jenkins commit"'
-           //sh 'git push'
+           sh '''' git branch
+           git checkout master
+           git pull 
+          git merge origin/feature''''
+    
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
             sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
            }
