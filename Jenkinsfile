@@ -14,7 +14,9 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
            sh 'ls'
            //sh 'git commit -am "jenkins commit"'
            //sh 'git push'
-            sh 'git push https://padmarajugadam:Vijuchinna35@github.com/padmarajugadam/gitpublish.git'
+           withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
+            sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
+           }
           }
          
         }
