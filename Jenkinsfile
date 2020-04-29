@@ -1,4 +1,4 @@
-def repositoryUrl = scm.userRemoteConfigs[0].url
+
 pipeline {
  agent any
  stages {
@@ -13,7 +13,12 @@ checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmodule
            sh 'git merge origin/feature'
          
            sh 'ls'
-           sh 'echo ${repositoryUrl} '
+           try{
+        GIT_REPO_URL = null
+        command = "grep -oP '(?<=url>)[^<]+' /var/lib/jenkins/jobs/${JOB_NAME}/config.xml"
+        GIT_REPO_URL = sh(returnStdout: true, script: command).trim();
+        echo "Detected Git Repo URL: ${GIT_REPO_URL}"  
+    }
            //sh 'git commit -am "jenkins commit"'
            //sh 'git push'
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
