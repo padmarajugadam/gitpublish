@@ -21,12 +21,16 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                withCredentials([usernameColonPassword(credentialsId: 'gitpush', variable: 'gpr')]) {
-                    sh 'git fetch --all'
-          sh 'git checkout master'             
-    // sh 'git commit -am "Merged develop branch to master'
+                withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'git-pass', usernameVariable: 'git-user')]) {
     sh 'git push origin master'
-}
+     }
+          
+                
+               
+                    
+                     
+   
+
             }
         }
     }
