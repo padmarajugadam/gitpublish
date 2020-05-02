@@ -4,6 +4,7 @@ pipeline {
         maven 'maven3.6.1' 
     }
  stages {
+  
 	 
 	 stage('Build') { 
             steps {
@@ -30,13 +31,14 @@ pipeline {
     post {
         
         success {
-            sh ''' git branch
+            sh ''' git log --graph --decorate --oneline
            git checkout master
            git pull 
           git merge origin/feature'''
     
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
             sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
+	    sh 'git log --graph --decorate --oneline'
            }
         }
 	 failure {
