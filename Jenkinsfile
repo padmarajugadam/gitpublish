@@ -10,11 +10,11 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-	 stage('quality') { 
-            steps {
-                sh 'mvn sonar:sonar' 
+	 steps {
+              withSonarQubeEnv('sonar') {
+                sh 'mvn  sonar:sonar'
+              }
             }
-        }
 	  stage("Quality Gate"){
 		  steps {
           timeout(time: 1, unit: 'HOURS') {
