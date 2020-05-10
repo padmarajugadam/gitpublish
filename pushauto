@@ -7,6 +7,13 @@ pipeline {
         maven 'maven3.6.1' 
     }
  stages {
+ 
+ 	stage('Demo') {
+     	  steps {
+       		echo 'Hello world'
+       	        sayHello 'Dave'
+               }
+	              }
   
 	 
 	 stage('Build') { 
@@ -14,12 +21,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-	stage('Demo') {
-       steps {
-       echo 'Hello world'
-        sayHello 'Dave'
-             }
-	     }
+	
 	 stage('Analysis') {
 	 steps {
               withSonarQubeEnv('sonar') {
