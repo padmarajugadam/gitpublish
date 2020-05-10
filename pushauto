@@ -15,9 +15,11 @@ pipeline {
             }
         }
 	stage('Demo') {
-    echo 'Hello world'
-    sayHello 'Dave'
+       steps {
+       echo 'Hello world'
+        sayHello 'Dave'
              }
+	     }
 	 stage('Analysis') {
 	 steps {
               withSonarQubeEnv('sonar') {
