@@ -1,9 +1,19 @@
+
+@Library('pipeline-library-demo')_
+
 pipeline {
  agent any
 	tools {
         maven 'maven3.6.1' 
     }
  stages {
+ 
+ 	stage('Demo') {
+     	  steps {
+       		echo 'Hello world'
+       	        sayHello 'Dave'
+               }
+	              }
   
 	 
 	 stage('Build') { 
@@ -11,6 +21,7 @@ pipeline {
                 echo "maven build"
             }
         }
+	
 	 stage('Analysis') {
 	 steps {
               echo "Analysis"
