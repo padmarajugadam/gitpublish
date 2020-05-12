@@ -40,7 +40,7 @@ pipeline {
         success {
 
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
-         
+            sh 'rm -rf develop'
 	    sh 'git clone https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git develop -b develop'
                     sh 'git add .'
                     sh 'git commit -m "foobar" '
