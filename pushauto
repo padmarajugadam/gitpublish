@@ -38,6 +38,7 @@ pipeline {
     post {
         
         success {
+	 sh 'git branch -a'
           
        sh 'git checkout develop'
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
