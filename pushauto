@@ -41,7 +41,7 @@ pipeline {
             sh ''' git log --graph --decorate --oneline
            git checkout develop
            git pull 
-           git merge feature'''
+           git merge origin/feature'''
     
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
             sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
