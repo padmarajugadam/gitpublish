@@ -44,7 +44,7 @@ pipeline {
 	    sh 'git clone https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git develop -b develop'
                     sh 'git add .'
                     sh 'git commit -m "foobar" '
-                    sh 'git push'
+                    sh ' git push origin HEAD:develop '
            }
         }
 	 failure {
