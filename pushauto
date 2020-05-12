@@ -45,8 +45,8 @@ pipeline {
     
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
             sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
-	    sh 'git log --graph --decorate --oneline'
 	    sh 'git checkout feature'
+	    sh 'git log --graph --decorate --oneline'
            }
         }
 	 failure {
