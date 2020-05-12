@@ -13,7 +13,7 @@ pipeline {
         }
 	 stage('Analysis') {
 	 steps {
-              ech "Analysis"
+              echo "Analysis"
             }
 	 }
 	  stage("Quality Gate") {
