@@ -1,5 +1,5 @@
 # sparkjava-war-example
-Build war with maven and sparkjava framework customized test1
+Build war with maven and sparkjava framework customized test1 test2
 
 Steps:
 
