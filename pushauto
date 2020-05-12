@@ -38,14 +38,10 @@ pipeline {
     post {
         
         success {
-            sh ''' git log --graph --decorate --oneline
-           git checkout develop
-           git pull
-          git merge origin/develop
-	  git reset --hard HEAD'''
+          
     
            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
-            sh 'git push https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
+            sh 'git push origin develop https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
 	    sh 'git log --graph --decorate --oneline'
            }
         }
