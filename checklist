@@ -11,6 +11,11 @@ pipeline {
 	   sh 'git pull'
 	   sh 'git status'
 	   sh 'cat test4'
+	   sh 'git merge origin/feature'
+                  
+               withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
+                sh 'git push  https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
+		sh 'git branch --all'
 	
 	              }
                 }
