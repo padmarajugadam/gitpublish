@@ -5,6 +5,7 @@ pipeline {
      	  steps {
        	   sh 'ls'
 	   sh 'git branch --all'
+	   sh 'git branch'
 	              }
                 }
 		}
