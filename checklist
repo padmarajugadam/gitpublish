@@ -3,9 +3,10 @@ pipeline {
    stages {
        stage('Demo') {
      	  steps {
+	     sh 'git branch'
        	   sh 'ls'
 	   sh 'git branch --all'
-	   sh 'git branch'
+	
 	              }
                 }
 		}
