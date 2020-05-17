@@ -6,6 +6,8 @@ pipeline {
 	     sh 'git branch'
        	   sh 'ls'
 	   sh 'git branch --all'
+	   echo 'Test checkout branch'
+	   sh 'git checkout develop'
 	
 	              }
                 }
