@@ -12,7 +12,8 @@ pipeline {
                 sh 'git merge origin/feature'
                   
                withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
-                sh 'git push origin develop https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
+                sh 'git push  https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
+		sh 'git branch --all'
        	          
                }
 	              }
