@@ -4,6 +4,7 @@ pipeline {
        stage('Demo') {
      	  steps {
        	   sh 'ls'
+	   sh 'git branch --all'
 	              }
                 }
 		}
