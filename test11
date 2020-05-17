@@ -9,10 +9,11 @@ pipeline {
 		extensions: [[$class: 'CleanBeforeCheckout']], 
 		submoduleCfg: [], 
 		userRemoteConfigs: [[credentialsId: 'gitpublish', url: 'https://github.com/padmarajugadam/gitpublish.git']]])
+		sh 'git checkout develop'
                 sh 'git merge origin/feature'
                   
                withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
-                sh 'git push  https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git ${COMMIT_ID}:refs/heads/develop'
+                sh 'git push  https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
 		sh 'git branch --all'
        	          
                }
