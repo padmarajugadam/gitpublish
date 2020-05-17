@@ -8,6 +8,7 @@ pipeline {
 	   sh 'git branch --all'
 	   echo 'Test checkout branch'
 	   sh 'git checkout develop'
+	   sh 'git status'
 	
 	              }
                 }
