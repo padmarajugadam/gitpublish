@@ -4,16 +4,16 @@ pipeline {
        stage('Demo') {
      	  steps {
        		checkout([$class: 'GitSCM', 
-          branches: [[name: '*/develop'], [name: '*/feature']], 
-          doGenerateSubmoduleConfigurations: false, 
-          extensions: [[$class: 'CleanBeforeCheckout']], 
-          submoduleCfg: [], 
-          userRemoteConfigs: [[credentialsId: 'gitpublish', url: 'https://github.com/padmarajugadam/gitpublish.git']]])
-            sh 'git merge feature'
+		branches: [[name: '*/develop']], 
+		doGenerateSubmoduleConfigurations: false, 
+		extensions: [[$class: 'CleanBeforeCheckout']], 
+		submoduleCfg: [], 
+		userRemoteConfigs: [[credentialsId: 'gitpublish', url: 'https://github.com/padmarajugadam/gitpublish.git']]])
+                sh 'git merge origin/feature'
                   
-            withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
-            sh 'git push origin develop https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
-       	        
+               withCredentials([usernamePassword(credentialsId: 'gitpush', passwordVariable: 'pass', usernameVariable: 'name')]) {
+                sh 'git push origin develop https://${name}:${pass}@github.com/padmarajugadam/gitpublish.git'
+       	          
                }
 	              }
                 }
